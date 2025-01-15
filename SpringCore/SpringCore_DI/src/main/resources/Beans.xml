@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+    <!-- instructions which We will give to IOC Container -->
+
+    <!-- make beans and register to IOC container -->
+
+    <!-- PetrolEngine > (spring bean)object >  Register to IOC container -->
+
+<!--     Mannual Autowiring -->
+<!--    <bean id="petrol" class="org.example.PetrolEngine"></bean>-->
+
+    <!-- DieselEngine > object >  Register to IOC container -->
+<!--    <bean id="diesel" class="org.example.DieselEngine"></bean>-->
+
+    <!-- Car > object >  Register to IOC container -->
+<!--    <bean id="car" class="org.example.Car" scope="singleton">-->
+        <!-- property tag for setter -->
+        <!-- Setter DI -->
+        <!-- <property name="engine" ref="petrol"></property> -->
+        <!-- Constructor DI -->
+<!--        <constructor-arg name="engine" ref="petrol"></constructor-arg>-->
+
+<!--    </bean>-->
+
+<!--    Autowiring-->
+<!--    byName(bean id and obj name must be same,setter)
+       ,byType(setter)
+       ,Constructor,no-->
+    <bean id="petrol" class="org.example.PetrolEngine"></bean>
+
+<!--    <bean id="diesel" class="org.example.DieselEngine"></bean> -->
+    <bean id="diesel" class="org.example.DieselEngine" autowire-candidate="false"></bean>
+
+<!--    <bean id="car" class="org.example.Car" autowire="byName"></bean> -->
+    <bean id="car" class="org.example.Car" autowire="byType"></bean>
+<!--    <bean id="car" class="org.example.Car" autowire="constructor"></bean> -->
+<!--    <bean id="car" class="org.example.Car" autowire="no"></bean> -->
+
+</beans>
